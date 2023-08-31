@@ -16,5 +16,11 @@ namespace BusSystemConsole.Models
         public int Id { get; set; }
         public string Placa { get; set; } = string.Empty;
         public string Motorista { get; set; }
+
+        public DateTime EntradaTerminal { get; set; }
+        public DateTime? SaidaTerminal { get; set; }
+        public int? TerminalId { get; set; }
+        public Terminal Terminal { get; set; } = null!;
+
     }
 }

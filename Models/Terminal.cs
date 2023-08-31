@@ -9,6 +9,6 @@ public class Terminal
 
     public int Id { get; set; } 
     public string Nome { get; set; }
-
     public int Vagas { get; set; }
+    public ICollection<Onibus> Onibus { get; set; }
 }
