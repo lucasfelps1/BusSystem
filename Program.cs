@@ -30,18 +30,18 @@ internal class Program
         }
 
 
-        // if (resposta == 1)
-        // {
-        //     var context = new AppDbContext();
+        if (resposta == 1)
+        {
+            var context = new AppDbContext();
 
-        //     Console.WriteLine("Digite a Placa, Exemplo: XXX-XXXX");
-        //     var placa = Console.ReadLine();
+            Console.WriteLine("Digite a Placa, Exemplo: XXXXXX");
+            var placa = Console.ReadLine();
 
-        //     Console.WriteLine("Digite o nome do Motorista,");
-        //     var motorista = Console.ReadLine();
+            Console.WriteLine("Digite o nome do Motorista,");
+            var motorista = Console.ReadLine();
 
-        //     Onibus.AdicionarOnibus(context, placa, motorista);
-        // }
+            Onibus.AdicionarOnibus(context, placa, motorista);
+        }
 
     }
 }

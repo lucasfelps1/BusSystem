@@ -14,7 +14,7 @@ namespace BusSystemConsole.Models
         public string Motorista { get; set; }
 
         public DateTime EntradaTerminal { get; set; }
-        public DateTime? SaidaTerminal { get; set; }
+        public DateTime? SaidaTerminal { get; set; } 
         public int? TerminalId { get; set; }
         public Terminal Terminal { get; set; } = null!;
 
@@ -26,6 +26,7 @@ namespace BusSystemConsole.Models
                 Placa = placa,
                 Motorista = motorista,
                 EntradaTerminal = DateTime.Now,
+                SaidaTerminal = null,
                 TerminalId = 1
             };
 
