@@ -50,4 +50,6 @@ namespace BusSystemConsole.EntityConfigs
 
         }
     }
+
+    
 }
