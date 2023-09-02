@@ -16,6 +16,25 @@ internal class Program
 
         var resposta = int.Parse(Console.ReadLine());
 
+        if (resposta == 1)
+        {
+            var context = new AppDbContext();
+
+            Console.WriteLine("Digite a Placa, Exemplo: XXXXXX");
+            var placa = Console.ReadLine();
+
+            Console.WriteLine("Digite o nome do Motorista,");
+            var motorista = Console.ReadLine();
+
+            Onibus.AdicionarOnibus(context, placa, motorista);
+        }
+
+        if(resposta == 2)
+        {
+            Console.WriteLine("Digite a placa do onibus que deseja excluir: ");
+            var placa = Console.ReadLine();
+            Onibus.RemoverOnibus(placa);
+        }
 
         if (resposta == 3)
         {   
@@ -30,18 +49,7 @@ internal class Program
         }
 
 
-        if (resposta == 1)
-        {
-            var context = new AppDbContext();
-
-            Console.WriteLine("Digite a Placa, Exemplo: XXXXXX");
-            var placa = Console.ReadLine();
-
-            Console.WriteLine("Digite o nome do Motorista,");
-            var motorista = Console.ReadLine();
-
-            Onibus.AdicionarOnibus(context, placa, motorista);
-        }
+        
 
     }
 }

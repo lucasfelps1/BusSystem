@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using BusSystemConsole.Contex;
@@ -32,6 +33,24 @@ namespace BusSystemConsole.Models
 
             context.Onibus.Add(novoOnibus);
             context.SaveChanges();
+        }
+
+        public static void RemoverOnibus(string placa)
+        {
+            var context = new AppDbContext();
+
+
+            var onibus = context.Onibus.FirstOrDefault(X => X.Placa == placa);
+
+            var entradaTerminal = onibus.EntradaTerminal;
+            var saidaTerminal = DateTime.Now - entradaTerminal;
+
+            context.Remove(onibus);
+            context.SaveChanges();
+
+            string dataFormatada = string.Format($"{0:D2}h {1:D2}m", saidaTerminal.Hours, saidaTerminal.Minutes);
+
+            Console.WriteLine($"O tempo de estádia do onibus no terminal foi de: {dataFormatada}");
         }
     }
 }
