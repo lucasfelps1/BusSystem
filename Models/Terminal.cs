@@ -21,4 +21,14 @@ public class Terminal
         context.Terminal.Add(novoTerminal);
         context.SaveChanges();
     }
+
+    public static void RemoverTerminal(int id)
+    {
+        var context = new AppDbContext();
+
+        var terminal = context.Terminal.FirstOrDefault(x => x.Id == id); 
+
+        context.Terminal.Remove(terminal);
+        context.SaveChanges();
+    }
 }

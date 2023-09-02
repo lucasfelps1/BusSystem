@@ -48,6 +48,15 @@ internal class Program
             Terminal.AdicionarTerminal(context, nome, vagas);
         }
 
+        if (resposta == 4)
+        {
+            Console.WriteLine("Digite o ID do terminal:");
+            var id = int.Parse(Console.ReadLine());
+
+            Terminal.RemoverTerminal(id);
+        }
+    
+
 
         
 
