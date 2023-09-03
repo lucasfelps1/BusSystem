@@ -44,19 +44,19 @@ namespace BusSystemConsole.Models
 
             var onibus = context.Onibus.FirstOrDefault(X => X.Placa == placa);
 
-            var entradaTerminal = onibus.EntradaTerminal;
-            var saidaTerminal = DateTime.Now - entradaTerminal;
+             var entradaTerminal = onibus.EntradaTerminal;
+            var saidaTerminal = DateTime.Now;
+            var tempoDeEstadia = saidaTerminal - entradaTerminal;
 
             context.Remove(onibus);
             context.SaveChanges();
 
-            string dataFormatada = string.Format($"{0:D2}h {1:D2}m", saidaTerminal.Hours, saidaTerminal.Minutes);
+            string tempoFormatado = string.Format("{0}d {1:D2}h {2:D2}m",
+            (int)tempoDeEstadia.TotalDays, tempoDeEstadia.Hours, tempoDeEstadia.Minutes);
 
             var terminal = context.Terminal.FirstOrDefault();
 
-            Console.WriteLine($"O tempo de estádia do onibus no terminal {terminal} foi de: {dataFormatada}");
+            Console.WriteLine($"O tempo de estadia do ônibus no terminal {terminal.Nome} foi de: {tempoFormatado}");
         }
-
-        
     }
 }

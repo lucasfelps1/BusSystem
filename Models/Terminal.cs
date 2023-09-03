@@ -9,8 +9,10 @@ public class Terminal
     public int Vagas { get; set; }
     public ICollection<Onibus> Onibus { get; set; } = new List<Onibus>();
 
-    public static void AdicionarTerminal(AppDbContext context, string nome, int vagas)
-    {
+    public static void AdicionarTerminal(string nome, int vagas)
+    {   
+        var context = new AppDbContext();
+
         var novoTerminal = new Terminal
         {
             Nome = nome,
