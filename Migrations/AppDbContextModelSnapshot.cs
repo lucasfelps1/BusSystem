@@ -41,7 +41,6 @@ namespace BusSystemConsole.Migrations
                         .HasColumnName("placa");
 
                     b.Property<DateTime?>("SaidaTerminal")
-                        .IsRequired()
                         .HasColumnType("DATETIME")
                         .HasColumnName("saida");
 

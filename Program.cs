@@ -12,21 +12,23 @@ internal class Program
         Console.WriteLine("2 - Remover onibus e saber tempo de estadia");
         Console.WriteLine("3 - Adiconar terminal");
         Console.WriteLine("4 - Remover terminal");
+        Console.WriteLine("5 - Verificar terminais e seus onibus");
         Console.WriteLine("0 - Sair");
 
         var resposta = int.Parse(Console.ReadLine());
 
         if (resposta == 1)
         {
-            var context = new AppDbContext();
-
             Console.WriteLine("Digite a Placa, Exemplo: XXXXXX");
             var placa = Console.ReadLine();
 
-            Console.WriteLine("Digite o nome do Motorista,");
+            Console.WriteLine("Digite o nome do Motorista:");
             var motorista = Console.ReadLine();
 
-            Onibus.AdicionarOnibus(context, placa, motorista);
+            Console.WriteLine("Digite o id do terminal:");
+            var terminal = int.Parse(Console.ReadLine());
+
+            Onibus.AdicionarOnibus(placa, motorista, terminal);
         }
 
         if(resposta == 2)
@@ -55,10 +57,14 @@ internal class Program
 
             Terminal.RemoverTerminal(id);
         }
-    
 
+        if (resposta == 5)
+        {
+            Console.WriteLine("Digite o id do terminal que você deseja ver");
+            var terminal = int.Parse(Console.ReadLine());
 
-        
+            Terminal.VerificarTerminais(terminal);
+        }
 
     }
 }

@@ -20,17 +20,19 @@ namespace BusSystemConsole.Models
         public Terminal Terminal { get; set; } = null!;
 
 
-        public static void AdicionarOnibus(AppDbContext context, string placa, string motorista)
-        {
+        public static void AdicionarOnibus(string placa, string motorista, int terminal)
+        {   
+            var context = new AppDbContext();
+
             var novoOnibus = new Onibus
-            {
+            {   
+
                 Placa = placa,
                 Motorista = motorista,
                 EntradaTerminal = DateTime.Now,
-                SaidaTerminal = null,
-                TerminalId = 1
+                TerminalId = terminal
             };
-
+            
             context.Onibus.Add(novoOnibus);
             context.SaveChanges();
         }
@@ -50,7 +52,11 @@ namespace BusSystemConsole.Models
 
             string dataFormatada = string.Format($"{0:D2}h {1:D2}m", saidaTerminal.Hours, saidaTerminal.Minutes);
 
-            Console.WriteLine($"O tempo de estádia do onibus no terminal foi de: {dataFormatada}");
+            var terminal = context.Terminal.FirstOrDefault();
+
+            Console.WriteLine($"O tempo de estádia do onibus no terminal {terminal} foi de: {dataFormatada}");
         }
+
+        
     }
 }

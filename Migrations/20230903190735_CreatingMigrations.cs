@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BusSystemConsole.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateOnibusTerminalTable : Migration
+    public partial class CreatingMigrations : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -42,7 +42,7 @@ namespace BusSystemConsole.Migrations
                     motorista = table.Column<string>(type: "varchar(100)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     entrada = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    saida = table.Column<DateTime>(type: "DATETIME", nullable: false),
+                    saida = table.Column<DateTime>(type: "DATETIME", nullable: true),
                     TerminalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

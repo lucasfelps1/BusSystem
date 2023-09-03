@@ -40,8 +40,7 @@ namespace BusSystemConsole.EntityConfigs
 
             builder.Property(o => o.SaidaTerminal)
                 .HasColumnName("saida")
-                .HasColumnType("DATETIME")
-                .IsRequired();
+                .HasColumnType("DATETIME");
 
             builder.HasOne(o => o.Terminal)
             .WithMany(t => t.Onibus)

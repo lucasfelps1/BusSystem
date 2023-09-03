@@ -31,4 +31,25 @@ public class Terminal
         context.Terminal.Remove(terminal);
         context.SaveChanges();
     }
+
+    public static void VerificarTerminais(int terminalID)
+    {
+        var context = new AppDbContext();
+
+        var terminalAchado = context.Terminal.FirstOrDefault(X => X.Id == terminalID);
+
+        var onibusNoTerminal = context.Onibus.Where(X => X.TerminalId == terminalAchado.Id).ToList();
+
+        var terminalInfo = new Terminal
+        {
+            Nome = terminalAchado.Nome,
+            Onibus = onibusNoTerminal
+        };
+        
+        string listaDeOnibus = string.Join(", ", onibusNoTerminal.Select(x => x.Placa));
+
+        Console.WriteLine($"Nome: {terminalAchado.Nome} - Ônibus: {listaDeOnibus}");
+        
+    }
+
 }

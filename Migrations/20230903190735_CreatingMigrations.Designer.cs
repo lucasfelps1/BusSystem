@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusSystemConsole.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230831185715_CreateOnibusTerminalTable")]
-    partial class CreateOnibusTerminalTable
+    [Migration("20230903190735_CreatingMigrations")]
+    partial class CreatingMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,7 +44,6 @@ namespace BusSystemConsole.Migrations
                         .HasColumnName("placa");
 
                     b.Property<DateTime?>("SaidaTerminal")
-                        .IsRequired()
                         .HasColumnType("DATETIME")
                         .HasColumnName("saida");
 
